@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membuat Form dengan Tailwind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <form class="font-mono bg-white shadow-md grid mx-72 my-5 gap-2.5 rounded-lg border-2 w-auto p-5 justify-normal" onsubmit="return validasiNama()">
+        <h2 class="text-center font-bold text-xl">Formulir Pendaftaran</h2>
+        <div>
+            <label for="nama">Nama Lengkap</label>
+            <span class="ml-2.5">:</span>
+            <input class=" border border-gray-500 w-1/2" type="text" id="nama" name="nama" required>
+        </div>
+
+        <div>
+            <label for="alamat">Alamat</label>
+            <span class="ml-16">:</span>
+            <input class="border border-gray-500 w-1/2" type="text" id="alamat" name="alamat" required>
+        </div>
+
+        <div>
+            <label for="tptLahir">Tempat Lahir</label>
+            <span class="ml-2.5">:</span>
+            <input class=" border border-gray-500 w-1/2" type="text" id="tptLahir" name="tptLahir" required>
+        </div>
+
+        <div>
+            <label for="tglLahir">Tanggal Lahir</label>
+            <span class="separator">:</span>
+            <input class="border border-gray-500 w-1/2" type="date" id="tglLahir" name="tglLahir" required>
+        </div>
+
+        <div>
+            <label>Jenis Kelamin</label>
+            <span class="separator">:</span>
+            <div >
+                <input type="radio" name="jk" value="laki-laki" required> Laki-laki
+                <input type="radio" name="jk" value="perempuan" required> Perempuan
+            </div>
+        </div>
+
+        <input class="bg-green-500 p-3 text-white inline-block 
+        m-3 rounded shadow hover:bg-green-700 text-center" type="submit" value="Daftar">
+    </form>
+
+    <script>
+        function validasiNama() {
+            let inputNama = document.getElementById("nama").value;
+            let pola = /^[a-zA-Z' ]+$/; //hanya huruf, spasi, petik satu yang boleh
+            if (!pola.test(inputNama)) {
+                alert("Nama hanya boleh berisi huruf dan tanda petik satu (')");
+                return false;
+            }
+            alert("Nama Valid!");
+            return true;
+        }
+    </script>
+</body>
+
+</html>
